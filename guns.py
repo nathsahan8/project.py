@@ -38,11 +38,11 @@ class GunGame:
             print("You block with your magical shield!")
 
     def comp_pick(self):
-        self.comp_move == random.choice(self.options)
+        self.comp_move = random.choice(self.options)
         if self.comp_move == "Load":
             self.comp_bullets += 1
         elif self.comp_move == "Shoot":
-            if self.user_bullets >= 1:
+            if self.comp_bullets >= 1:
                 print("The computer shot a bullet!")
             elif self.user_bullets == 0:
                 print("The computer does not have a bullet, but tries to shoot it again!")
@@ -61,16 +61,16 @@ class GunGame:
             elif self.comp_bullets >= 1:
                 print("You see the computer aiming at your head and fires at you!")
                 print("GAME OVER!")
-                self.user_alive == False
+                self.user_alive = False
         elif self.user_move == "Shoot" and self.comp_move == "Load":
             if self.user_bullets == 0:
                 print("You aim your gun at the computer and attempt to fire your gun. However, it fizzes out as you realize that you never loaded the gun in the first place.")
             elif self.user_bullets >= 1:
                 print("You aim your gun at the computer and shoot your bullet, killing it instantly!")
                 print("YOU WIN!")
-                self.comp_alive == False
+                self.comp_alive = False
         elif self.user_move == "Shoot" and self.comp_move == "Block":
-            if self.user_bullet == 0:
+            if self.user_bullets == 0:
                 print("You aim your gun as the computer scrambles to make a magical shield. You pull the trigger...and you realize you never loaded the gun in the first place.")
             elif self.user_bullets >=1:
                 print("You aim your gun at the computer as it scrambles to make a magical shield. You fire the gun and hit its shield.")
@@ -81,15 +81,15 @@ class GunGame:
             elif self.user_bullets >= 1 and self.comp_bullets >= 1:
                 print("Both of you aim your weapons at one another and know your faiths were sealed. You fired your guns and hoped for the best.")
                 print("GAME OVER!")
-                self.user_alive == False
+                self.user_alive = False
             elif self.user_bullets == 0 and self.comp_bullets >= 1:
                 print("You both aim your guns at one another, knowing well that you forgot to load your gun again while the computer did.")
                 print("GAME OVER!")
-                self.user_alive == False
+                self.user_alive = False
             elif self.user_bullets >= 1 and self.comp_bullets == 0:
                 print("You both aim your weapons at one another, in a standoff. You both shoot your weapons, but your gun was the only one loaded.")
                 print("YOU WIN!")
-                self.comp_alive == False
+                self.comp_alive = False
         elif self.user_move == "Block" and self.comp_move == "Load":
             print("You take the safer option and block while the computer quickly loads a bullet in")
         elif self.user_move == "Block" and self.comp_move == "Shoot":
