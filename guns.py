@@ -134,4 +134,10 @@ class GunGame:
                     selection == "No"
 
 
+def main():
+    gun = GunGame()
+    gun.start()
+
+main()
+
 
