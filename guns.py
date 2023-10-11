@@ -1,8 +1,8 @@
 import random
-import sys
+
 
 class GunGame:
-    def __init__(self):
+    def __init__(self):#take it out and edit to now neet(IS POSSIBLE!!!!)
         self.user_bullets = 0
         self.comp_bullets = 0
         self.options = ["Load", "Shoot", "Block"]
@@ -29,6 +29,7 @@ class GunGame:
 
         if self.user_move == "Load":
             self.user_bullets += 1
+            print("You load your gun!")
         elif self.user_move == "Shoot":
             if self.user_bullets >= 1:
                 print("You shot a bullet!")
@@ -50,7 +51,7 @@ class GunGame:
             print("The computer blocks with its magical shield!")
 
     def play_game(self):
-        if self.user_move and self.comp_move == "Load":
+        if self.user_move == "Load" and self.comp_move == "Load":
             print("Both of you load!")
             print("Congrats, you both live!")
         elif self.user_move == "Load" and self.comp_move == "Block":
@@ -72,7 +73,7 @@ class GunGame:
         elif self.user_move == "Shoot" and self.comp_move == "Block":
             if self.user_bullets == 0:
                 print("You aim your gun as the computer scrambles to make a magical shield. You pull the trigger...and you realize you never loaded the gun in the first place.")
-            elif self.user_bullets >=1:
+            elif self.user_bullets >= 1:
                 print("You aim your gun at the computer as it scrambles to make a magical shield. You fire the gun and hit its shield.")
                 self.user_bullets -= 1
         elif self.user_move == "Shoot" and self.comp_move == "Shoot":
@@ -119,8 +120,7 @@ class GunGame:
                     self.user_bullets = 0
                     self.comp_bullets = 0
                 else:
-                    print("Ok, have a nice day!")
-                    selection = "No"
+                    break
             if not self.comp_alive:
                 print("Do you want to play the game again?")
                 play = input().upper()
@@ -130,13 +130,10 @@ class GunGame:
                     self.user_bullets = 0
                     self.comp_bullets = 0
                 else:
-                    print("Ok, have a nice day!")#change it back so that it goes to the game selection
-                    selection == "No"
+                    break
 
 
-def main():
-    gun = GunGame()
-    gun.start()
+
 
 main()
 
